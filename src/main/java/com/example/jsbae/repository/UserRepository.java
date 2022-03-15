@@ -10,9 +10,17 @@ import java.util.Map;
 public class UserRepository {
 
     private Map<Long, User> userMap = new HashMap<>();
-    private Long userIdx;
+    private Long userIdx = 0L;
 
     public void createUser(User user) {
         userMap.put(++userIdx, user);
+    }
+
+    public void userInfo(long userIdx) {
+        userMap.get(userIdx);
+    }
+
+    public void updateUser(long userIdx, User user) {
+        userMap.put(userIdx, user);
     }
 }
