@@ -16,11 +16,19 @@ public class UserRepository {
         userMap.put(++userIdx, user);
     }
 
-    public void userInfo(long userIdx) {
-        userMap.get(userIdx);
+    public User userInfo(long userIdx) {
+        return userMap.get(userIdx);
     }
 
     public void updateUser(long userIdx, User user) {
         userMap.put(userIdx, user);
+    }
+
+    public Map<Long, User> userFindAll() {
+        return userMap;
+    }
+
+    public void deleteUser(long userIdx) {
+        userMap.remove(userIdx);
     }
 }
