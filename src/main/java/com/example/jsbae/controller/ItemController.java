@@ -1,6 +1,5 @@
 package com.example.jsbae.controller;
 
-
 import com.example.jsbae.Item;
 import com.example.jsbae.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +14,6 @@ public class ItemController {
 
     @Autowired
     ItemRepository itemRepository;
-
 
     @PostMapping
     public void makeItem(@RequestBody Item item) {
