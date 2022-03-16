@@ -1,24 +1,23 @@
 package com.example.jsbae.controller;
 
-import com.example.jsbae.User;
+import com.example.jsbae.domain.User;
 import com.example.jsbae.repository.UserRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+@Slf4j
 @RestController
 public class UserController {
 
-    private Logger log = LoggerFactory.getLogger(getClass());
     @Autowired
     UserRepository userRepository;
 
     @PostMapping("/signup")
-    public void createUser(@RequestBody User user) {
-        log.info("user={}" + user);
+    public void createUser(@ModelAttribute User user) {
+        log.info("user: {}, result: {}", user.toString(), "success");
         userRepository.createUser(user);
     }
 
@@ -35,6 +34,7 @@ public class UserController {
     @PutMapping("/user/{userIdx}")
     public void updateUser(@PathVariable long userIdx,
                            @RequestBody User user) {
+        log.info("messageBody={}", user);
         userRepository.updateUser(userIdx, user);
     }
 
@@ -45,6 +45,6 @@ public class UserController {
 
     @DeleteMapping("/user")
     public User deleteUser(@RequestBody User user) {
-       return userRepository.deleteUserByBody(user);
+        return userRepository.deleteUserByBody(user);
     }
 }

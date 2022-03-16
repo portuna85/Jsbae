@@ -1,38 +1,41 @@
 package com.example.jsbae.repository;
 
-import com.example.jsbae.User;
-import org.springframework.stereotype.Component;
+
+import com.example.jsbae.domain.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Component
+@Repository
 public class UserRepository {
 
-    private Map<Long, User> userMap = new HashMap<>();
-    private Long userIdx = 0L;
+    private static final Map<Long, User> store = new HashMap<>();
+    private static long userIdx = 0L;
 
-    public void createUser(User user) {
-        userMap.put(++userIdx, user);
+    public User createUser(User user) {
+        user.setUserIdx(++userIdx);
+        store.put(user.getUserIdx(), user);
+        return user;
     }
 
     public User userInfo(long userIdx) {
-        return userMap.get(userIdx);
+        return store.get(userIdx);
     }
 
     public void updateUser(long userIdx, User user) {
-        userMap.put(userIdx, user);
+        store.put(userIdx, user);
     }
 
     public Map<Long, User> userFindAll() {
-        return userMap;
+        return store;
     }
 
     public void deleteUserByIdx(long userIdx) {
-        userMap.remove(userIdx);
+        store.remove(userIdx);
     }
 
     public User deleteUserByBody(User user) {
-        return userMap.remove(user);
+        return store.remove(user);
     }
 }

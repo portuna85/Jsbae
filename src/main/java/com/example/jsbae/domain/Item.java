@@ -1,4 +1,4 @@
-package com.example.jsbae;
+package com.example.jsbae.domain;
 
 
 import lombok.Data;

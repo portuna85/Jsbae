@@ -27,9 +27,12 @@ public class ItemController {
     }
 
     @PutMapping("/{itemId}")
-    public void modifyItem(@PathVariable long itemId, @RequestBody Item item) {
+    public void modifyItem(@PathVariable long itemId,
+                           @RequestBody Item item) {
         itemRepository.updateById(itemId, item);
     }
+
+    @PutMapping("/")
 
     @DeleteMapping("/{id}")
     public void removeItem(@PathVariable("id") long itemId) {
