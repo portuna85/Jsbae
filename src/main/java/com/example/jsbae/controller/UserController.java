@@ -4,6 +4,7 @@ import com.example.jsbae.domain.User;
 import com.example.jsbae.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -16,9 +17,10 @@ public class UserController {
     UserRepository userRepository;
 
     @PostMapping("/signup")
-    public void createUser(@ModelAttribute User user) {
+    public String createUser(@ModelAttribute User user, Model model) {
         log.info("user: {}, result: {}", user.toString(), "success");
         userRepository.createUser(user);
+        return "basic/signup";
     }
 
     @GetMapping("/users")
