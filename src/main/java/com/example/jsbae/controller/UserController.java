@@ -19,7 +19,7 @@ public class UserController {
 
     @PostMapping("/signup")
     public void createUser(@RequestBody User user) {
-        log.info("user={}"+user);
+        log.info("user={}" + user);
         userRepository.createUser(user);
     }
 
@@ -41,7 +41,11 @@ public class UserController {
 
     @DeleteMapping("/user/{userIdx}")
     public void deleteUser(@PathVariable long userIdx) {
-        userRepository.deleteUser(userIdx);
+        userRepository.deleteUserByIdx(userIdx);
     }
 
+    @DeleteMapping("/user")
+    public User deleteUser(@RequestBody User user) {
+       return userRepository.deleteUserByBody(user);
+    }
 }

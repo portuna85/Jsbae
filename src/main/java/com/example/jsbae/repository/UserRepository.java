@@ -28,7 +28,11 @@ public class UserRepository {
         return userMap;
     }
 
-    public void deleteUser(long userIdx) {
+    public void deleteUserByIdx(long userIdx) {
         userMap.remove(userIdx);
+    }
+
+    public User deleteUserByBody(User user) {
+        return userMap.remove(user);
     }
 }
