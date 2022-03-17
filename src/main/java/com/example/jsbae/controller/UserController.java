@@ -3,7 +3,6 @@ package com.example.jsbae.controller;
 import com.example.jsbae.domain.User;
 import com.example.jsbae.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +12,6 @@ import java.util.Map;
 @RestController
 public class UserController {
 
-    @Autowired
     UserRepository userRepository;
 
     @PostMapping("/signup")

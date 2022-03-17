@@ -3,7 +3,6 @@ package com.example.jsbae.controller;
 import com.example.jsbae.Item;
 import com.example.jsbae.repository.ItemRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -12,7 +11,6 @@ import java.util.Map;
 @RestController("/item")
 public class ItemController {
 
-    @Autowired
     ItemRepository itemRepository;
 
     @PostMapping
