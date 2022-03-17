@@ -24,6 +24,8 @@ public class UserRepository {
     }
 
     public void updateUser(long userIdx, User user) {
+        Long userIdx1 = createUser(user).getUserIdx();
+        user.setUserIdx(userIdx1);
         store.put(userIdx, user);
     }
 
