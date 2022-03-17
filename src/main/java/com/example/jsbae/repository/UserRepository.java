@@ -38,4 +38,8 @@ public class UserRepository {
     public User deleteUserByBody(User user) {
         return store.remove(user);
     }
+
+    public void userTerminate() {
+        store.clear();
+    }
 }

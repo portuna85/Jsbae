@@ -45,6 +45,11 @@ public class UserController {
         userRepository.deleteUserByIdx(userIdx);
     }
 
+    @DeleteMapping("/users/delete")
+    public void userTerminate() {
+        userRepository.userTerminate();
+    }
+
     @DeleteMapping("/user")
     public User deleteUser(@RequestBody User user) {
         return userRepository.deleteUserByBody(user);
